@@ -16,6 +16,12 @@ class MainActivity : AppCompatActivity() {
             val myIntent = Intent(this, OtherActivity::class.java)
             startActivity(myIntent)
         }
-
+//  메세지 전달 버튼이 눌리면
+        val inputMessage = messageEdt.text.toString()
+        sendMessageBtn.setOnClickListener {
+            val myIntent = Intent(this, MessageActivity::class.java)
+            myIntent.putExtra("message",inputMessage)
+            startActivity(myIntent)
+        }
     }
 }
