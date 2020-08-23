@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
             val myIntent = Intent(this, MessageActivity::class.java)
             myIntent.putExtra("message",inputMessage)
             startActivity(myIntent)
+            //수정
         }
     }
 }
