@@ -2,6 +2,7 @@ package kr.co.tjoeun.activitytest
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -40,6 +41,19 @@ class MainActivity : AppCompatActivity() {
             //1000대신 => 멤버변수로 만들어둔 REQUEST_FOR_NICKNAME를 활용, 가독성 향상
             startActivityForResult(myIntent,REQUEST_FOR_NICKNAME)
         }
+
+        //Dial 액션 예제
+        dialBtn.setOnClickListener {
+
+            //입력한 폰번 받아오기
+            val inputPhoneNum = phoneNumEdt.text.toString()
+
+            val myUri = Uri.parse("tel:${inputPhoneNum}")
+            val myIntent = Intent(Intent.ACTION_DIAL, myUri)
+            startActivity(myIntent)
+
+        }
+
     }
 
     // 결과를 가지고 돌아올 때 실행되는 함수
